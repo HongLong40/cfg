@@ -13,114 +13,36 @@ xsetroot -solid '#19202A'
 # remove all existing keybindings
 hc keyunbind --all
 
-# keybindings ( Mod1 = Alt; Mod4 = Super )
-# Use the super key as the main modifier
-Mod=Mod4
-
-hc keybind $Mod-Shift-q quit
-hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
-hc keybind $Mod-Shift-x spawn $HOME/.config/utils/powermenu
-hc keybind $Mod-Shift-z spawn betterlockscreen -l
-
-hc keybind $Mod-Return  spawn alacritty
-
-# Application keybindings
-hc keybind $Mod-space   spawn rofi -show combi
-hc keybind $Mod-p       spawn rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
-
-hc keybind $Mod-e       spawn thunar
-
-hc keybind $Mod-b       chain : lock : use_index 4 : spawn vivaldi-stable : unlock             # browser → tag 5
-hc keybind $Mod-Shift-b chain : lock : use_index 5 : spawn vivaldi-stable --incognito : unlock # browser (private) → tag 6
-
-hc keybind Print          spawn flameshot gui  # screen capture
-hc keybind XF86Calculator spawn galculator     # calculator
-
-# Volume Control
-hc keybind $Mod-equal           spawn $HOME/.config/utils/switchaudio
-
-hc keybind XF86AudioMute        spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
-hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +1%
-hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -1%
-hc keybind XF86AudioPlay        spawn playerctl play-pause
-
-# basic movement and resizing in tiling and floating mode
-resizestep=0.02
-for dir_key in left right up down
-do
-    hc keybind $Mod-${(C)dir_key}          focus  $dir_key
-    hc keybind $Mod-Shift-${(C)dir_key}    shift  $dir_key
-    hc keybind $Mod-Control-${(C)dir_key}  resize $dir_key +$resizestep
-done
-
-# splitting frames
-# create and focus an empty frame at the specified direction
-hc keybind $Mod-u          chain : split bottom 0.5  : focus down
-hc keybind $Mod-o          chain : split right  0.5  : focus right
-hc keybind $Mod-Control-o  chain : split right  0.66 : focus --level=frame right : set_layout vertical
-
-# let the current frame explode into subframes
-hc keybind $Mod-Control-space split explode
-
-# focus or move to monitor
-hc keybind $Mod-BackSpace       cycle_monitor
-hc keybind $Mod-Shift-BackSpace shift_to_monitor +1
-
 # default frame layout: 0 vertical | 1 horizontal | 2 max | 3 grid
 hc set default_frame_layout horizontal 
 
-# tags
-tag_names=( {1..9} )
-typeset -i ws_index=0 # use this to set workspace indices, as zsh arrays are 1-based
-
-hc rename default ${tag_names[1]} 2>/dev/null || true
-for (( i = 1; i <= $#tag_names; i++ ))
-do
-    hc add ${tag_names[$i]}
-    if [[ $i -le 9 ]] ; then
-        hc keybind "$Mod-$i" use_index $ws_index
-        hc keybind "$Mod-Shift-$i" move_index $ws_index
-        (( ws_index++ ))
-    fi
-done
+# tags: 1 2 3 4 5 6 7 8 9
+hc rename default "1" 2>/dev/null || true
 
 # set default layout for 1st frame to horizontal
 # default_frame_layout does not apply for this frame
-hc load ${tag_names[1]} '(clients horizontal:0)'
+hc load "1" '(clients horizontal:0)'
 
-# set default layout for tags "4", "5", "6" and "9" to max
-for tag in 4 5 6 9
+for tag in {2..9}
 do
-    hc load ${tag_names[$tag]} '(clients max:0)'
+    hc add $tag
+
+    # set default layout for tags "4", "5", "6" and "9" to max
+    if [[ $tag =~ "4|5|6|9" ]]
+    then
+        hc load $tag '(clients max:0)'
+    fi
+
 done
-
-# layout
-hc keybind $Mod-r       remove
-hc keybind $Mod-s       floating   toggle
-hc keybind $Mod-f       set_attr   clients.focus.floating toggle
-hc keybind $Mod-Shift-f fullscreen toggle
-hc keybind $Mod-Shift-p pseudotile toggle
-
-hc keybind $Mod-g set_layout grid
-hc keybind $Mod-h set_layout horizontal
-hc keybind $Mod-m set_layout max
-hc keybind $Mod-v set_layout vertical
 
 # mouse
 hc mouseunbind --all
-hc mousebind $Mod-Button1 move
-hc mousebind $Mod-Button2 zoom
-hc mousebind $Mod-Button3 resize
-
-# focus
-hc keybind $Mod-Tab         cycle_all +1
-hc keybind $Mod-Shift-Tab   cycle_all -1
-hc keybind $Mod-c cycle
-hc keybind $Mod-i jumpto urgent
+hc mousebind Super-Button1 move
+hc mousebind Super-Button2 zoom
+hc mousebind Super-Button3 resize
 
 # toggle tabs
-hc keybind $Mod-t set tabbed_max toggle
+#hc keybind $Mod-t set tabbed_max toggle
 hc set tabbed_max off
 
 # load theme
@@ -155,6 +77,9 @@ do
 
     monitor_list+="${rect[3]}x${rect[4]}+${rect[1]}+${rect[2]}"
 done
+
+#monitor_list+="1690x1415+0+25"
+#monitor_list+="870x1415+1690+25"
 
 hc set_monitors $monitor_list
 

@@ -68,5 +68,7 @@ export SSH_AUTH_SOCK
 synology-drive &
 
 # start herbstluftwm. The --locked option eliminates flickering while wm starts
+sxhkd -c "$HOME/.config/herbstluftwm/sxhkdrc" &
+
 exec herbstluftwm --locked 
-#exec dbus-launch leftwm
+

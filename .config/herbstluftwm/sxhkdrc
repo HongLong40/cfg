@@ -1,0 +1,98 @@
+# launcher
+super + space
+    rofi -show combi
+
+# clipboard
+super + p
+    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+# power menu
+super + shift + x
+    $HOME/.config/utils/powermenu
+
+# lock screen
+super + shift + z
+    betterlockscreen -l
+
+# terminal
+super + Return
+    alacritty
+
+# file manager
+super + e
+    thunar
+
+# calculator, capture screen
+{XF86Calculator,Print}
+    {galculator,flameshot gui}
+
+# volume control
+super + equal
+    $HOME/.config/utils/switchaudio
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+    pactl set-sink-volume @DEFAULT_SINK@ {+1%,-1%}
+
+#XF86AudioPlay
+    playerctl play-pause
+
+# Vivaldi
+super + b
+    herbstclient use_index 4; vivaldi-stable >/dev/null 2>&1
+
+# Vivaldi --incognito
+super + shift + b
+    herbstclient use_index 5; vivaldi-stable --incognito >/dev/null 2>&1
+
+# quit, reload, close
+super + shift + {q,r,c}
+    herbstclient {quit,reload,close}
+
+# switch workspaces
+super + {_,shift} + {1,2,3,4,5,6,7,8,9}
+    herbstclient {use_index,move_index} {0,1,2,3,4,5,6,7,8}
+
+# change layout
+super + {g,h,m,v}
+    herbstclient set_layout {grid,horizontal,max,vertical}
+
+# window: focus or move
+super + {_,shift} + {Left,Right,Up,Down}
+    herbstclient {focus,shift} {left,right,up,down}
+
+# resize frame
+super + control + {Left,Right,Up,Down}
+    herbstclient resize {left,right,up,down} +0.02
+
+# explode frame into sub-frame
+super + control + space
+    herbstclient split explode
+
+ # create and focus an empty frame at the specified direction
+super + u
+    herbstclient chain : split bottom 0.5 : focus --level=frame down
+
+super + o
+    herbstclient chain : split right 0.5 : focus --level=frame right
+
+super + control + o
+    herbstclient chain : split right 0.66 : focus --level=frame right : set_layout vertical
+
+# layout: remove frame, toggle float, toggle fullscreen
+super + {r,f,shift + f}
+    herbstclient {remove,set_attr clients.focus.floating toggle,fullscreen toggle}
+
+# cycle frames and windows
+super + {_,shift} + Tab
+    herbstclient cycle_all {+1,-1}
+
+super + {c,i}
+    herbstclient {cycle,jumpto urgent}
+
+# focus or move to monitor
+super + {_,shift} + BackSpace
+    herbstclient {cycle_monitor,shift_to_monitor +1}
+
