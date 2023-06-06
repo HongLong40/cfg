@@ -6,13 +6,9 @@ super + space
 super + p
     rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
-# power menu
-super + shift + x
-    $HOME/.config/utils/powermenu
-
-# lock screen
-super + shift + z
-    betterlockscreen -l
+# power menu, lock screen
+super + shift + {x,z}
+    {$HOME/.config/utils/powermenu,betterlockscreen -l}
 
 # terminal
 super + Return
@@ -41,11 +37,11 @@ XF86AudioMute
 
 # Vivaldi
 super + b
-    herbstclient use_index 4; vivaldi-stable >/dev/null 2>&1
+    herbstclient chain X use_index 4 X spawn vivaldi-stable
 
 # Vivaldi --incognito
 super + shift + b
-    herbstclient use_index 5; vivaldi-stable --incognito >/dev/null 2>&1
+    herbstclient chain X use_index 5 X spawn vivaldi-stable --incognito
 
 # quit, reload, close
 super + shift + {q,r,c}
@@ -73,13 +69,13 @@ super + control + space
 
  # create and focus an empty frame at the specified direction
 super + u
-    herbstclient chain : split bottom 0.5 : focus --level=frame down
+    herbstclient chain X split bottom 0.5 X focus --level=frame down
 
 super + o
-    herbstclient chain : split right 0.5 : focus --level=frame right
+    herbstclient chain X split right 0.5 X focus --level=frame right
 
 super + control + o
-    herbstclient chain : split right 0.66 : focus --level=frame right : set_layout vertical
+    herbstclient chain X split right 0.66 X focus --level=frame right X set_layout vertical
 
 # layout: remove frame, toggle float, toggle fullscreen
 super + {r,f,shift + f}

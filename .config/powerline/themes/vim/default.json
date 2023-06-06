@@ -7,10 +7,8 @@
 			},
             {
                 "function": "bufnr",
-                "display": false,
-				"draw_soft_divider": false,
-                "before": "[",
-                "after": "] "
+                "display": true,
+				"draw_soft_divider": true
             },
             {
 				"function": "visual_range",
@@ -135,7 +133,7 @@
             {   "function": "line_count",
                 "draw_soft_divider": false,
                 "align": "l",
-                "before": "|"
+                "before": "│"
             }
 		]
 	}
