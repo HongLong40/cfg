@@ -64,6 +64,7 @@ herbstclient detect_monitors
 
 typeset -a monitor_list
 typeset -a rect
+typeset -i polybar_height=$(polybar -q -d height)
 
 for m in $(herbstclient list_monitors | cut -d: -f1)
 do
@@ -71,8 +72,8 @@ do
 
     if [[ $m -eq "0" ]]
     then
-        rect[2]=25
-        rect[4]=$(( ${rect[4]} - 25 ))
+        rect[2]=$(( $polybar_height + 1 ))
+        rect[4]=$(( ${rect[4]} - ${rect[2]} ))
     fi
 
     monitor_list+="${rect[3]}x${rect[4]}+${rect[1]}+${rect[2]}"
