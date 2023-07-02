@@ -36,6 +36,9 @@ greenclip daemon &
 # set numlock
 numlockx &
 
+# set solid background
+xsetroot -solid '#19202A'
+
 # set screen layout
 ~/.screenlayout/display.sh
 

@@ -8,8 +8,6 @@ function hc() { cmds+=("X" "$@") }
 
 hc emit_hook reload
 
-xsetroot -solid '#19202A'
-
 # remove all existing keybindings
 hc keyunbind --all
 
