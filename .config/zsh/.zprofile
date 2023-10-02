@@ -48,7 +48,7 @@ export EXA_COLORS='uu=35'
 export BC_ENV_ARGS=${HOME}/.config/bc/bcrc
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export USERNAME
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="bat -l man -p"
 
 
 # write out environment variables
