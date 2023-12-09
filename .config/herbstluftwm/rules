@@ -18,6 +18,7 @@ hc rule floatplacement=smart
 # Clients with fixed tags
 hc rule class=Code                tag=3 switchtag=on
 hc rule class=Clementine          tag=8
+hc rule class=strawberry          tag=8
 hc rule class=firefox             tag=5
 hc rule class~"Gimp.*"            tag=4 switchtag=on
 hc rule class="Inkscape"          tag=4 switchtag=on
