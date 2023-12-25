@@ -8,9 +8,9 @@ typeset -i _lines
 if [[ ${_lines_inp} == "-" ]]
 then
     exit 0
-else
-    _lines=$(</tmp/pacman_updates | wc -l)
 fi
+
+_lines=$(</tmp/pacman_updates | wc -l)
 
 if [[ ${_lines} -gt ${_max_lines} ]]
 then
