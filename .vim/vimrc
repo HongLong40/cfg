@@ -68,7 +68,7 @@ nnoremap <leader>fzf :FZF
 nnoremap <leader>gb :ls:b
 nnoremap <leader>ls :ls
 nnoremap <silent> <leader>cc :set invcursorcolumn
-nnoremap <silent> <leader>ff :%s/\(PAN: \\|,,,,\)//g
+nnoremap <silent> <leader>ff :%s/PAN: \\|,\{4\}//g
 nnoremap <silent> <leader>nn :set invnumber invrelativenumber
 nnoremap <silent> <leader>rt :RainbowToggle
 nnoremap <silent> <leader>sc :set invlist

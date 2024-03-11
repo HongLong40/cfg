@@ -1,20 +1,12 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+h",
-        "command": "workbench.action.navigateLeft"
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
     },
     {
-        "key": "ctrl+l",
-        "command": "workbench.action.navigateRight"
-    },
-    {
-        "key": "ctrl+k",
-        "command": "workbench.action.navigateUp"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.navigateDown"
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor"
     },
     // Toggle between terminal and editor focus
     {
@@ -25,5 +17,13 @@
         "key":     "ctrl+`",
         "command": "workbench.action.focusActiveEditorGroup",
         "when":    "terminalFocus"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.editor.changeLanguageMode"
+    },
+    {
+        "key": "alt+n",
+        "command": "workbench.action.files.newUntitledFile"
     }
 ]
