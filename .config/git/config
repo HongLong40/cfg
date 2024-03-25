@@ -7,7 +7,7 @@
 	default = upstream
 [core]
 	autocrlf = input
-	editor = vim
+	editor = code --wait
 	pager = bat
 [diff]
 	tool = vim
