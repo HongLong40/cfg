@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# 2024-04-01 ES remove TRAPHUP and TRAPTERM traps as tmp files get removed automatically
+
 typeset PROGNAME=$(basename $0)
 typeset PIDFILE="/tmp/check_pacman_updates.pid"
 
@@ -16,14 +18,6 @@ fi
 
 # create pid file
 echo $$ > $PIDFILE
-
-
-TRAPHUP TRAPTERM() {
-echo "[$(date)] : $PROGNAME (${pid_main}) stopped" >> /tmp/${PROGNAME}.log
-    rm -f /tmp/pacman_updates*
-    rm -f $PIDFILE
-    exit 0
-}
 
 TRAPUSR1() {
     write_log "refreshing update counts"
