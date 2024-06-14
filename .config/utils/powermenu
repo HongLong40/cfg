@@ -13,10 +13,10 @@ case $chosen in
         herbstclient quit
         ;;
     "Reboot")
-        reboot
+        systemctl reboot
         ;;
     "Power Off")
-        poweroff
+        systemctl poweroff
         ;;
 esac
 
