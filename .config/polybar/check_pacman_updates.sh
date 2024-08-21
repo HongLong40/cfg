@@ -45,7 +45,7 @@ check_update() {
     then
         echo - "-" > /tmp/pacman_updates.count
     else
-        echo ${_update_count_arch}"."${_update_count_aur} > /tmp/pacman_updates.count
+        echo ${_update_count_arch}"ᴘ "${_update_count_aur}"ᴀ" > /tmp/pacman_updates.count
     fi
     
     curr_update_count=$(( $_update_count_arch + $_update_count_aur ))
