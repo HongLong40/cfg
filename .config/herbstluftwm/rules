@@ -28,7 +28,7 @@ hc rule class="Virt-manager"      tag=9 switchtag=on
 
 # floating clients
 hc rule class=Galculator    floating=on floatplacement=center
-hc rule class=Gcolor3       floating=on floatplacement=center
+hc rule class="Nl.hjdskes.gcolor3"    floating=on floatplacement=center
 hc rule class=Gucharmap     floating=on floatplacement=smart
 hc rule class=gl            floating=on floatplacement=smart
 hc rule class=Lxappearance  floating=on floatplacement=smart
