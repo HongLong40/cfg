@@ -30,10 +30,10 @@
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     ##geometry = "0x0-30+30"
-    origin = top-right
     width = (0, 500)
-    height = 500
-    offset = 30x30
+    height = (0, 500)
+    origin = top-right
+    offset = (30, 30)
 
 
     # Show how many messages are currently hidden (because of geometry).
