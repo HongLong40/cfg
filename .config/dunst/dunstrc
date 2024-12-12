@@ -33,7 +33,7 @@
     width = (0, 500)
     height = (0, 500)
     origin = top-right
-    offset = (30, 30)
+    offset = (4, 29)
 
 
     # Show how many messages are currently hidden (because of geometry).
