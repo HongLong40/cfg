@@ -4,8 +4,10 @@ super + space
 
 # clipboard
 super + p
-    clipcat-menu
-#    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+#    clipmenu -dmenu -i -p "Clipboard"
+#    clipmenu
+#    clipcat-menu
+    rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # power menu, lock screen
 super + shift + {x,z}

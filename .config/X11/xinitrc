@@ -31,8 +31,9 @@ fi
 setxkbmap -option compose:ralt
 
 # start clipboard history manager
-# greenclip daemon &
-clipcatd &
+greenclip daemon &
+# clipcatd
+# clipmenud &
 
 # set numlock
 numlockx &

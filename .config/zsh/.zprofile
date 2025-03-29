@@ -51,7 +51,9 @@ export USERNAME
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-
+# launcher for clipmenu
+export CM_LAUNCHER=rofi
+export CM_HISTLENGTH=12
 # write out environment variables
 env | sort > ${ZDOTDIR}/env.txt
 
