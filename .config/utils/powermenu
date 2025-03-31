@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-chosen=$(echo "Log Out\nReboot\nPower Off" | \
+chosen=$(echo "Power Off\nReboot\nLog Out" | \
     rofi \
     -dmenu \
     -i \
