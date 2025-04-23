@@ -13,6 +13,10 @@ super + p
 super + shift + {x,z}
     {$HOME/.config/utils/powermenu,betterlockscreen -l}
 
+# lock screen
+super + l
+    betterlockscreen -l
+
 # terminal
 super + Return
     alacritty
