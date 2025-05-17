@@ -11,9 +11,7 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export ZSH="/usr/share/zsh/custom"
 
 # History
-export HISTFILE="${ZDOTDIR}/.zhistory"    # History filepath
-export HISTSIZE=50000
-export SAVEHIST=10000
+export HISTFILE="${XDG_CACHE_HOME}/.zhistory"    # History filepath
 
 export XCOMPOSEFILE="${XDG_CONFIG_HOME}/X11/xcompose"
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
@@ -51,9 +49,6 @@ export USERNAME
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-# launcher for clipmenu
-export CM_LAUNCHER=rofi
-export CM_HISTLENGTH=12
 # write out environment variables
 env | sort > ${ZDOTDIR}/env.txt
 
