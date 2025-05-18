@@ -39,7 +39,7 @@ source ${ZSH}/directories.zsh
 HISTFILE="${XDG_CACHE_HOME}/zsh_history"    # History filepath
 HISTSIZE=50000
 SAVEHIST=$HISTSIZE
-HISTORY_IGNORE="(ls|ls *|ll|cd*|cls|exit|poweroff|reboot)"
+HISTORY_IGNORE="(ls|ls *|ll|ll *|cd*|cls|exit|poweroff|reboot)"
 
 setopt extended_history                # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first          # delete duplicates first when HISTFILE size exceeds HISTSIZE
