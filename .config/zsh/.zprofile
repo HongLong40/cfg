@@ -1,35 +1,34 @@
 #!/bin/zsh
-
-# set XDG variables.
-# source: https://wiki.archlinux.org/index.php/XDG_Base_Directory
-
-export XDG_CONFIG_HOME="${HOME}/.config" 
-export XDG_CACHE_HOME="${HOME}/.cache" 
-export XDG_DATA_HOME="${HOME}/.local/share" 
-
-# export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+# ZSH directory
 export ZSH="/usr/share/zsh/custom"
 
-# History
-export HISTFILE="${XDG_CACHE_HOME}/.zhistory"    # History filepath
+# XDG variables.
+if [[ -f ${ZSH}/xdg_vars.zsh ]]
+then
+    source ${ZSH}/xdg_vars.zsh
+else
+    export XDG_CONFIG_HOME="${HOME}/.config"
+    export XDG_CACHE_HOME="${HOME}/.cache"
+    export XDG_DATA_HOME="${HOME}/.local/share"
+    echo "Backup path used. Could not find file to source" >| ${ZDOTDIR}/xdg_vars.txt
+fi
 
+# X11 variables
 export XCOMPOSEFILE="${XDG_CONFIG_HOME}/X11/xcompose"
+export XCOMPOSECACHE="${XDG_CACHE_HOME}/X11/xcompose"
 export XINITRC="${XDG_CONFIG_HOME}/X11/xinitrc"
 
-export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/rg/ripgreprc"
-
 # Compilation flags
-# lscpu | awk 'BEGIN { l=j=1 } /(Core|Thread)\(s\)/ { l=l*$NF } END { j=l+1; print "-j"j,"-l"l }'
 export MAKEFLAGS="-j$(nproc)"
 
-# disable LESSHISTFILE
+# Disable LESSHISTFILE
 export LESSHISTFILE=-
 
-# default editor
+# Default editor
 export EDITOR=vim
 export VISUAL=vim
 
-# hostname
+# Hostname
 export HOSTNAME=$(</etc/hostname)
 
 # virsh: connect to qemu:///system by default
@@ -38,21 +37,20 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 # Set language environment if it is not set
 export LANG=${LANG:-en_US.UTF-8}
 
-# set colors for ls command
+# Colors for ls command; enhancement for eza
 export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=1;35:st=37;44:ex=01;32:'
 export EXA_COLORS='uu=35'
 
 # Set misc. variables
-export BC_ENV_ARGS=${HOME}/.config/bc/bcrc
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"   # ensures that using bat as MANPAGER renders color codes correctly
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export USERNAME
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
 
-# write out environment variables
+# Write out environment variables
 env | sort > ${ZDOTDIR}/env.txt
 
-# start X and window manager
+# Start X and window manager
 if [[ -z "${DISPLAY}" ]] && [[ "${XDG_VTNR}" -eq 1 ]]
 then
     exec startx
