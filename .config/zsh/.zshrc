@@ -38,7 +38,7 @@ setopt interactive_comments     # allows comments in shell, useful when pasting 
 # -------------------------------
 # misc. variables
 # -------------------------------
-export BC_ENV_ARGS="${XDG_CONFIG_HOME}/.config/bc/bcrc"
+export BC_ENV_ARGS="${XDG_CONFIG_HOME}/bc/bcrc"
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/rg/ripgreprc"
 
 # -------------------------------
