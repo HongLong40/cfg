@@ -40,8 +40,9 @@ setopt interactive_comments     # allows comments in shell, useful when pasting 
 export BC_ENV_ARGS="${XDG_CONFIG_HOME}/bc/bcrc"
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/rg/ripgreprc"
 
-# Source key bindings and completion for fzf
+# Source key bindings and completion for fzf; set options
 source <(fzf --zsh)             # preferred, requires fzf 0.48 or later
+export FZF_DEFAULT_OPTS="--style=minimal --border --color=hl:#2dd4bf"
 
 # Highlighting plugin -- must be sourced last per author's instructions
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
