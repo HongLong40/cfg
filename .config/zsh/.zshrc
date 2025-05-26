@@ -4,6 +4,8 @@
 #   - remove compiling of .zcompdump (no real benefit)
 #   - change compinit to compinit -C (performance benefit)
 #   - load completions early
+# 2025-05-23
+#   - add options for FZF
 
 # Set fpath
 fpath=("${ZSH}/autoload.d" "$fpath[@]")
@@ -42,7 +44,8 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/rg/ripgreprc"
 
 # Source key bindings and completion for fzf; set options
 source <(fzf --zsh)             # preferred, requires fzf 0.48 or later
-export FZF_DEFAULT_OPTS="--style=minimal --border --color=hl:#2dd4bf"
+export FZF_DEFAULT_OPTS="--style=minimal --border --color=hl:#00cccc"
+export FZF_CTRL_R_OPTS="--layout=default --color=fg+:#c4a000 --color=bg+:-1 --no-sort"
 
 # Highlighting plugin -- must be sourced last per author's instructions
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -51,4 +54,3 @@ ZSH_HIGHLIGHT_STYLES[cursor]='fg=226'
 
 # Disable highlighting for pasted strings
 zle_highlight+=('paste:none')
-

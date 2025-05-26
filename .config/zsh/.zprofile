@@ -37,13 +37,12 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 # Set language environment if it is not set
 export LANG=${LANG:-en_US.UTF-8}
 
-# Colors for ls command; enhancement for eza
-export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=1;35:st=37;44:ex=01;32:'
-export EXA_COLORS='uu=35'
+# Modify colors for eza command
+export EZA_COLORS='uu=35'       # display user in purple text
 
 # Set misc. variables
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"   # ensures that using bat as MANPAGER renders color codes correctly
+export MANROFFOPT="-c"          # ensures that MANPAGER renders color codes correctly
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export USERNAME
 
