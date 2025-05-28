@@ -35,6 +35,11 @@ source ${ZSH}/directories.zsh
 source ${ZSH}/history.zsh
 source ${ZSH}/key-bindings.zsh
 
+# Load run-help function (aliased to man by default)
+unalias run-help 2> /dev/null   # don't display err if already done
+autoload -Uz run-help           # load the function
+alias help=run-help             # less typing
+
 # Additional options (main options defined in their respective *.zsh files)
 setopt interactive_comments     # allows comments in shell, useful when pasting commented snippets
 
