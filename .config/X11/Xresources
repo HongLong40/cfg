@@ -1,1 +1,27 @@
 Xft.dpi:    96.0
+! Arch Alacritty → Xresources Theme
+
+*.foreground:   #CFCFCF
+*.background:   #030303
+*.cursorColor:  #FFFFFF
+*.selection_background: #FFFFFF
+
+! Normal colors
+*.color0:       #0C0C0C
+*.color1:       #C50F1F
+*.color2:       #4E9A06
+*.color3:       #C4A000
+*.color4:       #3D77C2
+*.color5:       #9D6298
+*.color6:       #06989A
+*.color7:       #D3D7CF
+
+! Bright colors
+*.color8:       #555753
+*.color9:       #FF0000
+*.color10:      #96F73B
+*.color11:      #FFE880
+*.color12:      #739FCF
+*.color13:      #AD7FA8
+*.color14:      #3BF4F7
+*.color15:      #EEEEEC
