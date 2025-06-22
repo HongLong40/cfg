@@ -13,10 +13,6 @@ super + p
 super + shift + {x,z}
     {$HOME/.config/utils/powermenu,betterlockscreen -l}
 
-# lock screen
-super + l
-    betterlockscreen -l
-
 # terminal
 super + Return
     alacritty
@@ -51,7 +47,7 @@ super + shift + b
     herbstclient chain X use_index 5 X spawn vivaldi-stable --incognito
 
 # Firefox
-super + alt + f
+super + ctrl + b
     firefox
 
 # quit, reload, close
