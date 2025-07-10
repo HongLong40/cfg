@@ -79,7 +79,7 @@ super + u
     herbstclient chain X split bottom 0.5 X focus --level=frame down
 
 super + o
-    herbstclient chain X split right 0.5 X focus --level=frame right
+    herbstclient chain X split right 0.5 X focus --level=frame right X set_layout vertical
 
 super + control + o
     herbstclient chain X split right 0.66 X focus --level=frame right X set_layout vertical
