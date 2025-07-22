@@ -47,7 +47,7 @@ super + shift + b
     herbstclient chain X use_index 5 X spawn vivaldi-stable --incognito
 
 # Firefox
-super + ctrl + b
+super + alt + b
     firefox
 
 # quit, reload, close
