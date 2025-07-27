@@ -43,10 +43,6 @@ alias help=run-help             # less typing
 # Additional options (main options defined in their respective *.zsh files)
 setopt interactive_comments     # allows comments in shell, useful when pasting commented snippets
 
-# Misc. variables
-export BC_ENV_ARGS="${XDG_CONFIG_HOME}/bc/bcrc"
-export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/rg/ripgreprc"
-
 # Source key bindings and completion for fzf; set options
 source <(fzf --zsh)             # preferred, requires fzf 0.48 or later
 export FZF_DEFAULT_OPTS="--style=minimal --border --color=hl:#00cccc"
