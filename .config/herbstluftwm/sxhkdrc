@@ -40,11 +40,11 @@ XF86AudioPlay
 
 # Vivaldi
 super + b
-    herbstclient chain X use_index 4 X spawn vivaldi-stable
+    herbstclient chain X use_index 4 X spawn google-chrome-stable
 
 # Vivaldi --incognito
 super + shift + b
-    herbstclient chain X use_index 5 X spawn vivaldi-stable --incognito
+    herbstclient chain X use_index 5 X spawn google-chrome-stable --incognito
 
 # Firefox
 super + alt + b
