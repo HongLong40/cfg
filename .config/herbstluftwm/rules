@@ -21,8 +21,6 @@ hc rule class=Clementine          tag=8
 hc rule class=Strawberry          tag=8
 hc rule class=firefox             tag=5
 hc rule class~"Gimp.*"            tag=4 switchtag=on
-hc rule class=google-chrome       tag=5 switchtag=on
-hc rule class=Google-chrome       tag=5 switchtag=on
 hc rule class="Inkscape"          tag=4 switchtag=on
 hc rule class="Sxiv"              tag=4 switchtag=on
 hc rule class=org.remmina.Remmina tag=8 switchtag=on
