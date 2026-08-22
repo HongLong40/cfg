@@ -43,6 +43,29 @@ alias help=run-help             # less typing
 # Additional options (main options defined in their respective *.zsh files)
 setopt interactive_comments     # allows comments in shell, useful when pasting commented snippets
 
+# add openvpn connect function
+openvpn-userlocked() {
+    local authfile
+
+    authfile=$(mktemp) || return 1
+    chmod 600 "$authfile"
+
+    {
+        printf '%s\n' \
+            'esmith1340' \
+            "$(secret-tool lookup service openvpn edward esmith1340)" \
+            > "$authfile"
+
+        sudo openvpn \
+            --config "$HOME/OneDrive/profile-userlocked.ovpn" \
+            --auth-user-pass "$authfile" \
+            --auth-retry interact \
+            --auth-nocache
+    } always {
+        \rm -f "$authfile"
+    }
+}
+
 # Source key bindings and completion for fzf; set options
 source <(fzf --zsh)             # preferred, requires fzf 0.48 or later
 export FZF_DEFAULT_OPTS="--style=minimal --border --color=hl:#00cccc"
