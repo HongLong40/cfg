@@ -24,6 +24,9 @@ then
     done
 fi
 
+# start XSETTINGS daemon
+xsettingsd &
+
 # start authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
